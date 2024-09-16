@@ -126,6 +126,11 @@ MyPiece >> id [
 ]
 
 { #category : 'testing' }
+MyPiece >> isBlack [
+    ^ color = Color black.
+]
+
+{ #category : 'testing' }
 MyPiece >> isKing [
 	
 	^ false
