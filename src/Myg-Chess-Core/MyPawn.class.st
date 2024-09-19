@@ -17,6 +17,11 @@ MyPawn >> renderPieceOn: aSquare [
 	^ aSquare renderPawn: self
 ]
 
+{ #category : 'promote' }
+MyPawn >> replacePiece: aNewPiece [ 
+	self at: self square name put: aNewPiece .
+]
+
 { #category : 'rendering' }
 MyPawn >> targetSquaresLegal: aBoolean [
 
