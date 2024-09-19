@@ -14,6 +14,7 @@ MyPawnTest >> testReplacePiece [
     oldPiece := MyPawn black.
     newPiece := MyQueen black.
 	 square := board at:'e4'.
+	 self assert: (square hasPiece ) equals: false.
     board  at: 'e4' put: oldPiece.
     self assert: (square hasPiece ) equals: true.
 	 oldPiece replacePiece: newPiece.

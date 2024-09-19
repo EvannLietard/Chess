@@ -19,7 +19,7 @@ MyPawn >> renderPieceOn: aSquare [
 
 { #category : 'promote' }
 MyPawn >> replacePiece: aNewPiece [ 
-	self square board at: self square name put: aNewPiece .
+	self board at: self square name put: aNewPiece .
 ]
 
 { #category : 'rendering' }
