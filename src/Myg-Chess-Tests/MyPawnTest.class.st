@@ -6,6 +6,34 @@ Class {
 }
 
 { #category : 'tests' }
+MyPawnTest >> testBlackPawnShouldNotPromote [
+    | blackPawn board promotedBlack |
+    
+    board := MyChessBoard empty.
+	 board initializeSquares. 
+    blackPawn := MyPawn black.
+    board at: 'e2' put: blackPawn.    
+    promotedBlack := blackPawn shouldPromote.
+    self deny: promotedBlack.
+
+
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testBlackPawnShouldPromote [
+    | blackPawn board promotedBlack |
+    
+    board := MyChessBoard empty.
+	 board initializeSquares. 
+    blackPawn := MyPawn black .
+    board at: 'e2' put: blackPawn.  
+    blackPawn moveTo: 'e1'.
+    promotedBlack := blackPawn shouldPromote.
+    self assert: promotedBlack.
+
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testPawnIsBlack [
     | blackPawn |
     
@@ -36,4 +64,31 @@ MyPawnTest >> testReplacePiece [
 	 oldPiece replacePiece: newPiece.
     self assert: square contents equals: newPiece .
 
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testWhitePawnShouldNotPromote [
+    | whitePawn board promotedWhite |
+    
+    board := MyChessBoard empty.
+	 board initializeSquares. 
+    whitePawn := MyPawn white.
+    board at: 'e2' put: whitePawn.    
+    promotedWhite := whitePawn shouldPromote.
+    self deny: promotedWhite.
+
+
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testWhitePawnShouldPromote [
+
+	| whitePawn board promotedWhite |
+	board := MyChessBoard empty.
+	board initializeSquares. 
+	whitePawn := MyPawn white.
+	board at: 'e7' put: whitePawn.
+	whitePawn moveTo: 'e8'.
+	promotedWhite := whitePawn shouldPromote.
+	self assert: promotedWhite 
 ]

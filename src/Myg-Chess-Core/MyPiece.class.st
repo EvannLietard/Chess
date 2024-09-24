@@ -169,11 +169,21 @@ MyPiece >> legalTargetSquares [
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
 
+	Transcript
+		show: 'Legal squares: '
+			, (self legalTargetSquares collect: [ :sq | sq name ]) asString;
+		cr.
+
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
 
-	square emptyContents.
-	square := aSquare.
-	aSquare contents: self
+	square emptyContents. "Vider le contenu de la case actuelle"
+
+	Transcript
+		show: 'Moving to: ' , aSquare name;
+		cr.
+
+	square := aSquare. "Mettre à jour la case"
+	aSquare contents: self "Placer le pion sur la nouvelle case"
 ]
 
 { #category : 'rendering' }
