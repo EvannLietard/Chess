@@ -6,6 +6,22 @@ Class {
 }
 
 { #category : 'tests' }
+MyPawnTest >> testPawnIsBlack [
+    | blackPawn |
+    
+    blackPawn := MyPawn black .
+	self assert: blackPawn isBlack .
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testPawnIsWhite [
+    | whitePawn |
+    
+    whitePawn := MyPawn white .
+	self assert: whitePawn isWhite.
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testReplacePiece [
     | board oldPiece newPiece square |
     
