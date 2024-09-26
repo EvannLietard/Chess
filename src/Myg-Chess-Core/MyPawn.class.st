@@ -25,7 +25,6 @@ MyPawn >> replacePiece: aNewPiece [
 { #category : 'asserting' }
 MyPawn >> shouldPromote [
 	"Return True if the pawn can promot false if not"
-	Transcript show: 'Square name: ', (self square name); cr.
     ^ (self isWhite and: [self square name endsWith: '8'])
         or: [self isBlack and: [self square name endsWith: '1']].
 ]
