@@ -26,7 +26,7 @@ MyPawn >> replacePiece: aNewPiece [
 MyPawn >> shouldPromote [
 	"Return True if the pawn can promot false if not"
     ^ (self isWhite and: [self square name endsWith: '8'])
-        or: [self isBlack and: [self square name endsWith: '1']].
+        bXor: [self isBlack and: [self square name endsWith: '1']].
 ]
 
 { #category : 'rendering' }
