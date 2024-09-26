@@ -1,10 +1,20 @@
 How to do mutationTest for method:
-testCases :=  {MyPawnTest}.
-methodToMutate := {MyPawn >> #shouldPromote}.
-analysis := MTAnalysis new
+
+    testCases :=  {MyPawnTest}.
+    methodToMutate := {MyPawn >> #shouldPromote}.
+    analysis := MTAnalysis new
     testClasses: testCases;
     methodsToMutate: methodToMutate.
+    analysis run.
+    analysis generalResult.
 
-analysis run.
+Si test trop long:
 
-analysis generalResult.
+    testCases := {MyPawnTest}. 
+    methodToMutate := {MyPawn >> #shouldPromote}. 
+    analysis := MTAnalysis new testClasses: 
+    testCases; 
+    methodsToMutate: methodToMutate.
+    analysis testFilter: MTRedTestFilter new.
+    analysis run.
+    analysis generalResult.
