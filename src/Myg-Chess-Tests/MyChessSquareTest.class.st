@@ -8,7 +8,7 @@ Class {
 { #category : 'foreground' }
 MyChessSquareTest >> testForegroundBlackSquare [
 
-	|  blackSquare board |
+    | blackSquare board |
 
     board := MyChessBoard empty.
     board blackColor: Color pink.
@@ -19,12 +19,13 @@ MyChessSquareTest >> testForegroundBlackSquare [
     blackSquare color: Color black.
     blackSquare board: board.
     self assert: blackSquare foreground equals: Color pink.
+
 ]
 
 { #category : 'foreground' }
 MyChessSquareTest >> testForegroundWhiteSquare [
 
-	| whiteSquare board |
+    | whiteSquare board |
 
     board := MyChessBoard empty.
     board blackColor: Color pink.
@@ -35,7 +36,7 @@ MyChessSquareTest >> testForegroundWhiteSquare [
     whiteSquare color: Color white.
     whiteSquare board: board.
     self assert: whiteSquare foreground equals: Color orange.
-	
+
 ]
 
 { #category : 'rendering' }
