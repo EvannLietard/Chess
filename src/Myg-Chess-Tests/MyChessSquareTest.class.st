@@ -5,6 +5,39 @@ Class {
 	#package : 'Myg-Chess-Tests'
 }
 
+{ #category : 'foreground' }
+MyChessSquareTest >> testForegroundBlackSquare [
+
+	|  blackSquare board |
+
+    board := MyChessBoard empty.
+    board blackColor: Color pink.
+    board whiteColor: Color orange.
+
+    "Test case noire"
+    blackSquare := MyChessSquare new.
+    blackSquare color: Color black.
+    blackSquare board: board.
+    self assert: blackSquare foreground equals: Color pink.
+]
+
+{ #category : 'foreground' }
+MyChessSquareTest >> testForegroundWhiteSquare [
+
+	| whiteSquare board |
+
+    board := MyChessBoard empty.
+    board blackColor: Color pink.
+    board whiteColor: Color orange.
+
+    "Test case blanche"
+    whiteSquare := MyChessSquare new.
+    whiteSquare color: Color white.
+    whiteSquare board: board.
+    self assert: whiteSquare foreground equals: Color orange.
+	
+]
+
 { #category : 'rendering' }
 MyChessSquareTest >> testRenderBishop [ 
 
@@ -35,7 +68,7 @@ MyChessSquareTest >> testRenderBishop [
 	
 ]
 
-{ #category : 'tests' }
+{ #category : 'rendering' }
 MyChessSquareTest >> testRenderKing [
 
 	| squareTest whiteKing blackKing |
@@ -60,7 +93,7 @@ MyChessSquareTest >> testRenderKing [
 	self assert: (squareTest renderKing: blackKing) equals: 'l'.
 ]
 
-{ #category : 'tests' }
+{ #category : 'rendering' }
 MyChessSquareTest >> testRenderKnight [
 
 	| squareTest whiteKnight blackKnight |
@@ -85,7 +118,7 @@ MyChessSquareTest >> testRenderKnight [
 	self assert: (squareTest renderKnight: blackKnight) equals: 'm'.
 ]
 
-{ #category : 'tests' }
+{ #category : 'rendering' }
 MyChessSquareTest >> testRenderPawn [
 
 	| squareTest whitePawn blackPawn |
@@ -110,7 +143,7 @@ MyChessSquareTest >> testRenderPawn [
 	self assert: (squareTest renderPawn: blackPawn) equals: 'o'.
 ]
 
-{ #category : 'tests' }
+{ #category : 'rendering' }
 MyChessSquareTest >> testRenderQueen [
 
 	| squareTest whiteQueen blackQueen |
@@ -135,7 +168,7 @@ MyChessSquareTest >> testRenderQueen [
 	self assert: (squareTest renderQueen: blackQueen) equals: 'w'.
 ]
 
-{ #category : 'tests' }
+{ #category : 'rendering' }
 MyChessSquareTest >> testRenderRook [ 
 
 	| squareTest whiteRook blackRook |
