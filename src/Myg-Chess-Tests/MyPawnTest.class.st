@@ -13,7 +13,7 @@ MyPawnTest >> testBlackPawnShouldNotPromote [
 	 board initializeSquares. 
     blackPawn := MyPawn black.
     board at: 'e2' put: blackPawn.    
-    promotedBlack := blackPawn shouldPromote.
+    promotedBlack := blackPawn canPromote.
     self deny: promotedBlack.
 
 
@@ -27,7 +27,7 @@ MyPawnTest >> testBlackPawnShouldPromote [
 	 board initializeSquares. 
     blackPawn := MyPawn black .
     board at: 'e1' put: blackPawn.  
-    promotedBlack := blackPawn shouldPromote.
+    promotedBlack := blackPawn canPromote.
     self assert: promotedBlack.
 
 ]
@@ -71,7 +71,7 @@ MyPawnTest >> testWhitePawnShouldNotPromote [
 	 board initializeSquares. 
     whitePawn := MyPawn white.
     board at: 'e2' put: whitePawn.    
-    promotedWhite := whitePawn shouldPromote.
+    promotedWhite := whitePawn canPromote.
     self deny: promotedWhite.
 
 
@@ -85,6 +85,6 @@ MyPawnTest >> testWhitePawnShouldPromote [
 	board initializeSquares. 
 	whitePawn := MyPawn white.
 	board at: 'e8' put: whitePawn.
-	promotedWhite := whitePawn shouldPromote.
+	promotedWhite := whitePawn canPromote.
 	self assert: promotedWhite 
 ]

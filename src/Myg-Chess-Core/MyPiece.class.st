@@ -37,6 +37,16 @@ MyPiece >> board [
 	^ square board
 ]
 
+{ #category : 'testing' }
+MyPiece >> canPromote [ 
+^false
+]
+
+{ #category : 'testing' }
+MyPiece >> canPromoteGeneric [
+^self canPromote 
+]
+
 { #category : 'rendering' }
 MyPiece >> collectSquares: aBlock [
 
@@ -173,6 +183,11 @@ MyPiece >> moveTo: aSquare [
 	square emptyContents. 
 	square := aSquare. 
 	aSquare contents: self
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> promote [
+ ^ 0.
 ]
 
 { #category : 'rendering' }

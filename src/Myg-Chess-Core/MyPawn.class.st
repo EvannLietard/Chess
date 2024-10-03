@@ -5,10 +5,41 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'asserting' }
+MyPawn >> canPromote [
+	"Return True if the pawn can promot false if not"
+    ^(self isWhite and: [self square name endsWith: '8'])
+        xor: [self isBlack and: [self square name endsWith: '1']].
+]
+
 { #category : 'accessing' }
 MyPawn >> id [
 
 	^ 'P'
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> promote [ 
+ ^ 2
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> promotionWindow [
+|window reine tour fou chevalier |
+window := BlSpace new.
+reine:= ToButton new.
+reine labelText: 'reine'.
+tour:=ToButton new.
+tour labelText: 'tour'.
+fou:=ToButton new.
+fou labelText: 'fou'.
+chevalier:=ToButton new.
+chevalier labelText: 'chevalier'.
+window root addChild: reine.
+window root addChild: tour.
+window root addChild: fou.
+window root addChild: chevalier. 
+window show.
 ]
 
 { #category : 'rendering' }
@@ -20,13 +51,6 @@ MyPawn >> renderPieceOn: aSquare [
 { #category : 'promote' }
 MyPawn >> replacePiece: aNewPiece [ 
 	self board at: self square name put: aNewPiece .
-]
-
-{ #category : 'asserting' }
-MyPawn >> shouldPromote [
-	"Return True if the pawn can promot false if not"
-    ^ (self isWhite and: [self square name endsWith: '8'])
-        xor: [self isBlack and: [self square name endsWith: '1']].
 ]
 
 { #category : 'rendering' }
