@@ -39,6 +39,24 @@ MyChessSquareTest >> testForegroundWhiteSquare [
 
 ]
 
+{ #category : 'tests' }
+MyChessSquareTest >> testPlus [ 
+	
+	| squareTest result boardTest |
+	
+	boardTest := MyChessBoard empty. 
+	squareTest := MyChessSquare new. 
+	squareTest color: Color white.
+	squareTest name: 'e4'.
+   squareTest board: boardTest. 
+
+	result := squareTest + (1 @ 1). 
+	self assert: result name equals: 'f5'. 
+	
+	result := squareTest + (-1 @ -1).
+   self assert: result name equals: 'd3'.
+]
+
 { #category : 'rendering' }
 MyChessSquareTest >> testRenderBishop [ 
 
