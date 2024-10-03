@@ -6,6 +6,18 @@ Class {
 }
 
 { #category : 'tests' }
+MyChessSquareTest >> testBoard [
+
+    | squareTest boardTest |
+    squareTest := MyChessSquare new.
+    boardTest := MyChessBoard empty.
+
+    squareTest board: boardTest.
+    self assert: squareTest board equals: boardTest.
+
+]
+
+{ #category : 'tests' }
 MyChessSquareTest >> testColor [
 
     | squareTest |
