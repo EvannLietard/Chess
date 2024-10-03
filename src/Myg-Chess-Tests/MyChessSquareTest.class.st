@@ -5,6 +5,18 @@ Class {
 	#package : 'Myg-Chess-Tests'
 }
 
+{ #category : 'tests' }
+MyChessSquareTest >> testColor [
+
+    | squareTest |
+
+    squareTest := MyChessSquare new.
+    
+    squareTest color: Color black.
+    self assert: squareTest color equals: Color black.
+
+]
+
 { #category : 'foreground' }
 MyChessSquareTest >> testForegroundBlackSquare [
 
