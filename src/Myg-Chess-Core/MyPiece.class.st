@@ -192,7 +192,7 @@ MyPiece >> promote [
 ]
 
 { #category : 'as yet unclassified' }
-MyPiece >> promotionWindowGeneric [ 
+MyPiece >> promotionWindow [ 
 ^self  
 ]
 
