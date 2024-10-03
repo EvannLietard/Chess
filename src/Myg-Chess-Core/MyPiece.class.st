@@ -180,6 +180,7 @@ MyPiece >> legalTargetSquares [
 MyPiece >> moveTo: aSquare [
 
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
+	(self canPromoteGeneric ) ifTrue: [ self promotionWindow ].
 	square emptyContents. 
 	square := aSquare. 
 	aSquare contents: self
@@ -188,6 +189,11 @@ MyPiece >> moveTo: aSquare [
 { #category : 'as yet unclassified' }
 MyPiece >> promote [
  ^ 0.
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> promotionWindowGeneric [ 
+^self  
 ]
 
 { #category : 'rendering' }
