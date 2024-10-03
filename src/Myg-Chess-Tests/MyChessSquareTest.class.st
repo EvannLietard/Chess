@@ -64,6 +64,22 @@ MyChessSquareTest >> testForegroundWhiteSquare [
 ]
 
 { #category : 'tests' }
+MyChessSquareTest >> testName [
+
+    | squareTest |
+    squareTest := MyChessSquare new.
+	 squareTest color: Color white.
+	
+    squareTest name: 'a1'.
+    self assert: squareTest name equals: 'a1'.
+
+    "Test de changement si changement de nom"
+    squareTest name: 'b2'.
+    self assert: squareTest name equals: 'b2'.
+
+]
+
+{ #category : 'tests' }
 MyChessSquareTest >> testPlus [ 
 	
 	| squareTest result boardTest |
