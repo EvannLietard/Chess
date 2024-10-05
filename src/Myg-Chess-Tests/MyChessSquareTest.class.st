@@ -29,6 +29,72 @@ MyChessSquareTest >> testColor [
 
 ]
 
+{ #category : 'tests' }
+MyChessSquareTest >> testContents [
+
+    | squareTest whitePiece blackPiece boardTest |
+
+    boardTest := MyChessBoard empty.
+    boardTest whiteColor: Color white.
+    boardTest blackColor: Color black.
+
+    squareTest := MyChessSquare new.
+    squareTest board: boardTest. 
+
+    whitePiece := MyBishop white. 
+    blackPiece := MyBishop black. 
+
+    squareTest color: Color white.
+    squareTest contents: whitePiece.
+    self assert: (squareTest contents) equals: whitePiece.
+
+
+    squareTest color: Color black.
+    squareTest contents: blackPiece.
+    self assert: (squareTest contents) equals: blackPiece.
+
+]
+
+{ #category : 'tests' }
+MyChessSquareTest >> testContentsWithNil [
+
+	| squareTest boardTest expectedText |
+	
+	boardTest := MyChessBoard empty.
+	boardTest whiteColor: Color white.
+	boardTest blackColor: Color black.
+
+	squareTest := MyChessSquare new.
+	squareTest board: boardTest.
+	
+	squareTest color: Color white.
+	squareTest contents: nil. "Pas de pièce sur la case"
+	self assert: squareTest contents isNil. 
+
+	"Vérification que le texte affiché est 'z' pour une case blanche sans pièce"
+	expectedText := squareTest contents
+		                ifNil: [
+			                squareTest color isBlack
+				                ifTrue: [ 'x' ]
+				                ifFalse: [ 'z' ] ]
+		                ifNotNil: [ squareTest contents renderPieceOn: self ].
+	self assert: expectedText equals: 'z'.
+
+	
+	squareTest color: Color black.
+	squareTest contents: nil. 
+	self assert: squareTest contents isNil. 
+
+	"Vérification que le texte affiché est 'x' pour une case noire sans pièce"
+	expectedText := squareTest contents
+		                ifNil: [
+			                squareTest color isBlack
+				                ifTrue: [ 'x' ]
+				                ifFalse: [ 'z' ] ]
+		                ifNotNil: [ squareTest contents renderPieceOn: self ].
+	self assert: expectedText equals: 'x'
+]
+
 { #category : 'foreground' }
 MyChessSquareTest >> testForegroundBlackSquare [
 
