@@ -96,7 +96,7 @@ MyChessSquareTest >> testContentsWithNil [
 ]
 
 { #category : 'foreground' }
-MyChessSquareTest >> testForegroundBlackSquare [
+MyChessSquareTest >> testForeground [
 
     | blackSquare board |
 
