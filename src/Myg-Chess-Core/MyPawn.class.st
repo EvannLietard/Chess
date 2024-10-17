@@ -37,10 +37,10 @@ MyPawn >> promotionWindow [
 	fou labelText: 'fou'.
 	chevalier := ToButton new.
 	chevalier labelText: 'chevalier'.
-	chevalier whenClickedDo: [ self replacePiece: MyKnight new ].
-	reine whenClickedDo: [ self replacePiece: MyQueen new ].
-	fou whenClickedDo: [ self replacePiece: MyBishop new ].
-	tour whenClickedDo: [ self replacePiece: MyRook new ].
+	chevalier whenClickedDo: [ self replacePiece: MyKnight new. window close. ].
+	reine whenClickedDo: [ self replacePiece: MyQueen new. window close.].
+	fou whenClickedDo: [ self replacePiece: MyBishop new. window close.].
+	tour whenClickedDo: [ self replacePiece: MyRook new. window close. ].
 	pane addChild: reine .
 	pane addChild: chevalier .
 	pane addChild: fou .
