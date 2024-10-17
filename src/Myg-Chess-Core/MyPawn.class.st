@@ -25,21 +25,20 @@ MyPawn >> promote [
 
 { #category : 'as yet unclassified' }
 MyPawn >> promotionWindow [
-|window reine tour fou chevalier |
-window := BlSpace new.
-reine:= ToButton new.
-reine labelText: 'reine'.
-tour:=ToButton new.
-tour labelText: 'tour'.
-fou:=ToButton new.
-fou labelText: 'fou'.
-chevalier:=ToButton new.
-chevalier labelText: 'chevalier'.
-window root addChild: reine.
-window root addChild: tour.
-window root addChild: fou.
-window root addChild: chevalier. 
-window show.
+
+	| window reine tour fou chevalier |
+	window := BlSpace new.
+	reine := ToButton new.
+	reine labelText: 'reine'.
+	tour := ToButton new.
+	tour labelText: 'tour'.
+	fou := ToButton new.
+	fou labelText: 'fou'.
+	chevalier := ToButton new.
+	chevalier labelText: 'chevalier'.
+	chevalier whenClickedDo: [ self replacePiece: MyKnight new].
+	window root addChild: chevalier.
+	window show
 ]
 
 { #category : 'rendering' }
@@ -49,8 +48,10 @@ MyPawn >> renderPieceOn: aSquare [
 ]
 
 { #category : 'promote' }
-MyPawn >> replacePiece: aNewPiece [ 
-	self board at: self square name put: aNewPiece .
+MyPawn >> replacePiece: aNewPiece [
+
+	aNewPiece color: self color.
+	self board at: self square name put: aNewPiece
 ]
 
 { #category : 'rendering' }
