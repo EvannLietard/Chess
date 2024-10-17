@@ -26,8 +26,9 @@ MyPawn >> promote [
 { #category : 'as yet unclassified' }
 MyPawn >> promotionWindow [
 
-	| window reine tour fou chevalier |
+	| window reine tour fou chevalier pane |
 	window := BlSpace new.
+	pane:= ToPane horizontal .
 	reine := ToButton new.
 	reine labelText: 'reine'.
 	tour := ToButton new.
@@ -36,8 +37,15 @@ MyPawn >> promotionWindow [
 	fou labelText: 'fou'.
 	chevalier := ToButton new.
 	chevalier labelText: 'chevalier'.
-	chevalier whenClickedDo: [ self replacePiece: MyKnight new].
-	window root addChild: chevalier.
+	chevalier whenClickedDo: [ self replacePiece: MyKnight new ].
+	reine whenClickedDo: [ self replacePiece: MyQueen new ].
+	fou whenClickedDo: [ self replacePiece: MyBishop new ].
+	tour whenClickedDo: [ self replacePiece: MyRook new ].
+	pane addChild: reine .
+	pane addChild: chevalier .
+	pane addChild: fou .
+	pane addChild: tour .
+	window root addChild: pane.
 	window show
 ]
 
