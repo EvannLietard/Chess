@@ -53,12 +53,34 @@ MyPawnTest >> testCreateBishopButton [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testCreateBishopButtonClick [
+
+	| button |
+	button := pawn createBishopButton.
+	BlSpace simulateMouseDownOn: button.
+	BlSpace simulateMouseUpOn: button.
+	self assert: pawn class equals: MyBishop.
+	self assert: pawn window isNil
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testCreateKnightButton [
 
 	| button |
 	button := pawn createKnightButton.
 	self assert: button notNil.
 	self assert: (button labelText) equals: 'chevalier'.
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testCreateKnightButtonClick [
+
+	| button |
+	button := pawn createKnightButton.
+	BlSpace simulateMouseDownOn: button.
+	BlSpace simulateMouseUpOn: button.
+	self assert: (pawn class) equals: MyKnight.
+	self assert: pawn window isNil
 ]
 
 { #category : 'tests' }
@@ -72,6 +94,17 @@ MyPawnTest >> testCreateQueenButton [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testCreateQueenButtonClick [
+
+	| button |
+	button := pawn createQueenButton.
+	BlSpace simulateMouseDownOn: button.
+	BlSpace simulateMouseUpOn: button.
+	self assert: (pawn class) equals: MyQueen.
+	self assert: pawn window isNil
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testCreateRookButton [
 
 	| button |
@@ -79,6 +112,17 @@ MyPawnTest >> testCreateRookButton [
 	self assert: button notNil.
 	self assert: (button labelText) equals: 'tour'.
 	
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testCreateRookButtonClick [
+
+	| button |
+	button := pawn createRookButton.
+	BlSpace simulateMouseDownOn: button.
+	BlSpace simulateMouseUpOn: button.
+	self assert: (pawn class) equals: MyRook.
+	self assert: pawn window isNil
 ]
 
 { #category : 'tests' }
