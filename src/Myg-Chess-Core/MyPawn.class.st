@@ -107,3 +107,8 @@ MyPawn >> targetSquaresLegal: aBoolean [
 		  s notNil and: [
 			  s hasPiece not or: [ s contents color ~= color ] ] ]
 ]
+
+{ #category : 'accessing' }
+MyPawn >> window [
+    ^ window
+]

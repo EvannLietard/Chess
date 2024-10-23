@@ -1,9 +1,19 @@
 Class {
 	#name : 'MyPawnTest',
 	#superclass : 'TestCase',
+	#instVars : [
+		'pawn'
+	],
 	#category : 'Myg-Chess-Tests',
 	#package : 'Myg-Chess-Tests'
 }
+
+{ #category : 'running' }
+MyPawnTest >> setUp [
+
+	super setUp.
+	pawn := MyPawn new
+]
 
 { #category : 'tests' }
 MyPawnTest >> testBlackPawnShouldNotPromote [
@@ -33,6 +43,45 @@ MyPawnTest >> testBlackPawnShouldPromote [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testCreateBishopButton [
+
+	| button |
+	button := pawn createBishopButton.
+	self assert: button notNil.
+	self assert: (button labelText) equals: 'fou'.
+
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testCreateKnightButton [
+
+	| button |
+	button := pawn createKnightButton.
+	self assert: button notNil.
+	self assert: (button labelText) equals: 'chevalier'.
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testCreateQueenButton [
+
+	| button |
+	button := pawn createQueenButton.
+	self assert: button notNil.
+	self assert: (button labelText) equals: 'reine'.
+	
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testCreateRookButton [
+
+	| button |
+	button := pawn createRookButton.
+	self assert: button notNil.
+	self assert: (button labelText) equals: 'tour'.
+	
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testPawnIsBlack [
     | blackPawn |
     
@@ -46,6 +95,30 @@ MyPawnTest >> testPawnIsWhite [
     
     whitePawn := MyPawn white .
 	self assert: whitePawn isWhite.
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testPromotionWindowCreateTheWindow [
+    self assert: pawn window isNil.
+    pawn promotionWindow.
+    self assert: pawn window notNil.
+
+   
+
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testPromotionWindowNumberOfButton [
+
+	pawn promotionWindow.
+	self assert: (pawn window root firstChild children size) equals: 4.
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testPromotionWindowPaneSize [
+
+	pawn promotionWindow.
+	self assert: (pawn window root children size) equals: 1.
 ]
 
 { #category : 'tests' }
