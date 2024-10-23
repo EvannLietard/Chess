@@ -1,15 +1,66 @@
 Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',
+	#instVars : [
+		'window'
+	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'asserting' }
+{ #category : 'promote' }
 MyPawn >> canPromote [
-	"Return True if the pawn can promot false if not"
-    ^(self isWhite and: [self square up name endsWith: '8'])
-        xor: [self isBlack and: [self square down name endsWith: '1']].
+
+	^ (self isWhite and: [ self square up name endsWith: '8' ]) xor: [
+		  self isBlack and: [ self square down name endsWith: '1' ] ]
+]
+
+{ #category : 'promote' }
+MyPawn >> createBishopButton [
+
+	| button |
+	button := ToButton new.
+	button labelText: 'fou'.
+	button whenClickedDo: [
+		self replacePiece: MyBishop new.
+		window close ].
+	^ button
+]
+
+{ #category : 'promote' }
+MyPawn >> createKnightButton [
+
+	| button |
+	button := ToButton new.
+	button labelText: 'chevalier'.
+	button whenClickedDo: [
+		self replacePiece: MyKnight new.
+		window close ].
+	^ button
+]
+
+{ #category : 'promote' }
+MyPawn >> createQueenButton [
+
+	| button |
+	button := ToButton new.
+	button labelText: 'reine'.
+	button whenClickedDo: [
+		self replacePiece: MyQueen new.
+		window close ].
+	^ button
+]
+
+{ #category : 'promote' }
+MyPawn >> createRookButton [
+
+	| button |
+	button := ToButton new.
+	button labelText: 'tour'.
+	button whenClickedDo: [
+		self replacePiece: MyRook new.
+		window close ].
+	^ button
 ]
 
 { #category : 'accessing' }
@@ -18,38 +69,20 @@ MyPawn >> id [
 	^ 'P'
 ]
 
-{ #category : 'as yet unclassified' }
-MyPawn >> promote [ 
- ^ 2
-]
-
-{ #category : 'as yet unclassified' }
+{ #category : 'promote' }
 MyPawn >> promotionWindow [
-    | window pane pieces |
-
+    
+    | pane |
     window := BlSpace new.
     pane := ToPane horizontal.
     
-    pieces := {
-        {'reine'. MyQueen}.
-        {'tour'. MyRook}.
-        {'fou'. MyBishop}.
-        {'chevalier'. MyKnight}
-    }.
-    
-    pieces do: [ :each | 
-        | button pieceName pieceClass |
-        pieceName := each first.
-        pieceClass := each second.
-        button := ToButton new.
-        button labelText: pieceName.
-        button whenClickedDo: [ self replacePiece: pieceClass new. window close. ].
-        pane addChild: button.
-    ].
+    pane addChild: self createQueenButton.
+    pane addChild: self createRookButton.
+    pane addChild: self createBishopButton.
+    pane addChild: self createKnightButton.
     
     window root addChild: pane.
     window show.
-
 ]
 
 { #category : 'rendering' }
