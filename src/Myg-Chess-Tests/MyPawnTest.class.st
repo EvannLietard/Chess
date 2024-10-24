@@ -16,7 +16,8 @@ MyPawnTest >> setUp [
 	super setUp.
 	board := MyChessBoard empty.
 	board initializeSquares. 
-	pawn := MyPawn new
+	pawn := MyPawn black.
+	board at: 'e1' put: pawn.
 ]
 
 { #category : 'tests' }
@@ -193,9 +194,7 @@ MyPawnTest >> testWhitePawnShouldNotPromote [
 { #category : 'tests' }
 MyPawnTest >> testWhitePawnShouldPromote [
 
-	| whitePawn board promotedWhite |
-	board := MyChessBoard empty.
-	board initializeSquares. 
+	| whitePawn  promotedWhite |
 	whitePawn := MyPawn white.
 	board at: 'e7' put: whitePawn.
 	promotedWhite := whitePawn canPromote.
