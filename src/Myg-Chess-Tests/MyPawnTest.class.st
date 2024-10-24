@@ -2,7 +2,8 @@ Class {
 	#name : 'MyPawnTest',
 	#superclass : 'TestCase',
 	#instVars : [
-		'pawn'
+		'pawn',
+		'board'
 	],
 	#category : 'Myg-Chess-Tests',
 	#package : 'Myg-Chess-Tests'
@@ -11,16 +12,17 @@ Class {
 { #category : 'running' }
 MyPawnTest >> setUp [
 
+	
 	super setUp.
+	board := MyChessBoard empty.
+	board initializeSquares. 
 	pawn := MyPawn new
 ]
 
 { #category : 'tests' }
 MyPawnTest >> testBlackPawnShouldNotPromote [
-    | blackPawn board promotedBlack |
+    | blackPawn promotedBlack |
     
-    board := MyChessBoard empty.
-	 board initializeSquares. 
     blackPawn := MyPawn black.
     board at: 'e3' put: blackPawn.    
     promotedBlack := blackPawn canPromote.
@@ -31,10 +33,8 @@ MyPawnTest >> testBlackPawnShouldNotPromote [
 
 { #category : 'tests' }
 MyPawnTest >> testBlackPawnShouldPromote [
-    | blackPawn board promotedBlack |
-    
-    board := MyChessBoard empty.
-	 board initializeSquares. 
+    | blackPawn promotedBlack |
+
     blackPawn := MyPawn black .
     board at: 'e2' put: blackPawn.  
     promotedBlack := blackPawn canPromote.
@@ -167,10 +167,8 @@ MyPawnTest >> testPromotionWindowPaneSize [
 
 { #category : 'tests' }
 MyPawnTest >> testReplacePiece [
-    | board oldPiece newPiece square |
+    |  oldPiece newPiece square |
     
-    board := MyChessBoard empty.
-	 board initializeSquares. 
     oldPiece := MyPawn black.
     newPiece := MyQueen black.
 	 square := board at:'e4'.
@@ -182,10 +180,8 @@ MyPawnTest >> testReplacePiece [
 
 { #category : 'tests' }
 MyPawnTest >> testWhitePawnShouldNotPromote [
-    | whitePawn board promotedWhite |
-    
-    board := MyChessBoard empty.
-	 board initializeSquares. 
+    | whitePawn  promotedWhite |
+     
     whitePawn := MyPawn white.
     board at: 'e2' put: whitePawn.    
     promotedWhite := whitePawn canPromote.
