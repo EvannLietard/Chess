@@ -13,27 +13,6 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'api - text weight' }
-MyChessSquare class >> black [
-
-	^ self color: Color black
-]
-
-{ #category : 'api - text weight' }
-MyChessSquare class >> color: aColor [
-
-	^ self basicNew
-		  color: aColor;
-		  initialize;
-		  yourself
-]
-
-{ #category : 'api - text weight' }
-MyChessSquare class >> white [
-
-	^ self color: Color white
-]
-
 { #category : 'arithmetic' }
 MyChessSquare >> + aPoint [
 
