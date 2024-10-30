@@ -5,6 +5,24 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'as yet unclassified' }
+MyBlackChessSquare >> emptySquareRepresentation [
+
+	^ 'x'
+]
+
+{ #category : 'accessing' }
+MyBlackChessSquare >> foreground [
+			
+	^ board blackColor
+]
+
+{ #category : 'as yet unclassified' }
+MyBlackChessSquare >> negatedColor [
+
+	^ Color white
+]
+
 { #category : 'rendering' }
 MyBlackChessSquare >> renderBishop: aPiece [
 

@@ -2,7 +2,6 @@ Class {
 	#name : 'MyChessSquare',
 	#superclass : 'BlElement',
 	#instVars : [
-		'color',
 		'name',
 		'label',
 		'piece',
@@ -63,18 +62,6 @@ MyChessSquare >> click [
 ]
 
 { #category : 'accessing' }
-MyChessSquare >> color [
-
-	^ color
-]
-
-{ #category : 'accessing' }
-MyChessSquare >> color: anObject [
-
-	color := anObject
-]
-
-{ #category : 'accessing' }
 MyChessSquare >> column [
 	
 	^ name first
@@ -92,10 +79,7 @@ MyChessSquare >> contents: aPiece [
 	contents := aPiece.
 
 	text := contents
-		        ifNil: [
-			        color isBlack
-				        ifFalse: [ 'z' ]
-				        ifTrue: [ 'x' ] ]
+		        ifNil: [ self emptySquareRepresentation ]
 		        ifNotNil: [ contents renderPieceOn: self ].
 	piece text: (text asRopedText
 			 fontSize: 48;
@@ -115,6 +99,12 @@ MyChessSquare >> emptyContents [
 	self contents: nil
 ]
 
+{ #category : 'as yet unclassified' }
+MyChessSquare >> emptySquareRepresentation [
+
+	self subclassResponsibility 
+]
+
 { #category : 'accessing' }
 MyChessSquare >> file [
 	
@@ -124,9 +114,7 @@ MyChessSquare >> file [
 { #category : 'accessing' }
 MyChessSquare >> foreground [
 			
-	^ color isBlack
-		ifTrue: [ board blackColor ]
-		ifFalse: [ board whiteColor ]
+	self subclassResponsibility
 ]
 
 { #category : 'testing' }
@@ -185,7 +173,13 @@ MyChessSquare >> name [
 MyChessSquare >> name: aString [
 
 	name := aString.
-	label text: (name asRopedText foreground: color negated)
+	label text: (name asRopedText foreground: self negatedColor)
+]
+
+{ #category : 'as yet unclassified' }
+MyChessSquare >> negatedColor [
+
+	self subclassResponsibility 
 ]
 
 { #category : 'printing' }
