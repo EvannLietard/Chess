@@ -55,13 +55,13 @@ MyPawnTest >> testCreateBishopButton [
 
 { #category : 'tests' }
 MyPawnTest >> testCreateBishopButtonClick [
-
 	| button |
+	pawn initializeNewWindow.
 	button := pawn createBishopButton.
-	BlSpace simulateMouseDownOn: button.
-	BlSpace simulateMouseUpOn: button.
-	self assert: pawn class equals: MyBishop.
-	self assert: pawn window isNil
+	pawn window root addChild: button.
+	button dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	self assert: (pawn square contents class) equals: MyBishop.
+
 ]
 
 { #category : 'tests' }
@@ -77,11 +77,11 @@ MyPawnTest >> testCreateKnightButton [
 MyPawnTest >> testCreateKnightButtonClick [
 
 	| button |
+	pawn initializeNewWindow.
 	button := pawn createKnightButton.
-	BlSpace simulateMouseDownOn: button.
-	BlSpace simulateMouseUpOn: button.
-	self assert: (pawn class) equals: MyKnight.
-	self assert: pawn window isNil
+	pawn window root addChild: button.
+	button dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	self assert: (pawn square contents class) equals: MyKnight.
 ]
 
 { #category : 'tests' }
@@ -98,11 +98,11 @@ MyPawnTest >> testCreateQueenButton [
 MyPawnTest >> testCreateQueenButtonClick [
 
 	| button |
+	pawn initializeNewWindow.
 	button := pawn createQueenButton.
-	BlSpace simulateMouseDownOn: button.
-	BlSpace simulateMouseUpOn: button.
-	self assert: (pawn class) equals: MyQueen.
-	self assert: pawn window isNil
+	pawn window root addChild: button.
+	button dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	self assert: (pawn square contents class) equals: MyQueen.
 ]
 
 { #category : 'tests' }
@@ -119,11 +119,11 @@ MyPawnTest >> testCreateRookButton [
 MyPawnTest >> testCreateRookButtonClick [
 
 	| button |
+	pawn initializeNewWindow.
 	button := pawn createRookButton.
-	BlSpace simulateMouseDownOn: button.
-	BlSpace simulateMouseUpOn: button.
-	self assert: (pawn class) equals: MyRook.
-	self assert: pawn window isNil
+	pawn window root addChild: button.
+	button dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	self assert: (pawn square contents class) equals: MyRook.
 ]
 
 { #category : 'tests' }

@@ -69,11 +69,16 @@ MyPawn >> id [
 	^ 'P'
 ]
 
+{ #category : 'initialization' }
+MyPawn >> initializeNewWindow [
+    window := BlSpace new.
+]
+
 { #category : 'promote' }
 MyPawn >> promotionWindow [
     
     | pane |
-    window := BlSpace new.
+    self initializeNewWindow .
     pane := ToPane horizontal.
     
     pane addChild: self createQueenButton.
