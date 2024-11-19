@@ -2,8 +2,7 @@ Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',
 	#instVars : [
-		'window',
-		'promotionStrategy'
+		'window'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -20,12 +19,6 @@ MyPawn >> canPromote [
 MyPawn >> id [
 
 	^ 'P'
-]
-
-{ #category : 'as yet unclassified' }
-MyPawn >> promote [
-	"Vérifie si la promotion est possible, et applique la stratégie"
-	self canPromote ifTrue: [ promotionStrategy promotePawn: self ] 
 ]
 
 { #category : 'rendering' }
@@ -49,9 +42,4 @@ MyPawn >> targetSquaresLegal: aBoolean [
 		   ifFalse: [ { square down } ]) select: [ :s |
 		  s notNil and: [
 			  s hasPiece not or: [ s contents color ~= color ] ] ]
-]
-
-{ #category : 'accessing' }
-MyPawn >> window [
-    ^ window
 ]

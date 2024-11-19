@@ -9,8 +9,12 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-MyManualPromotionStrategy >> createBishopButton: aPawn [ 
-    ^ self createPromotionButtonFor: aPawn pieceClass: MyBishop label: 'Bishop'.
+MyManualPromotionStrategy >> createBishopButton: aPawn [
+
+	^ self
+		  createPromotionButtonFor: aPawn
+		  pieceClass: MyBishop
+		  label: 'Bishop'
 ]
 
 { #category : 'as yet unclassified' }
@@ -60,4 +64,9 @@ MyManualPromotionStrategy >> promotePawn: aPawn [
 
 	window root addChild: pane.
 	window show
+]
+
+{ #category : 'accessing' }
+MyManualPromotionStrategy >> window [
+    ^ window
 ]
