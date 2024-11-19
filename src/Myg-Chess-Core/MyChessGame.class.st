@@ -56,6 +56,11 @@ MyChessGame >> checkForMate [
 	blackPlayer king isCheckMated ifTrue: [ self halt: 'White wins!' ].
 ]
 
+{ #category : 'accessing' }
+MyChessGame >> currentPlayer [
+^currentPlayer 
+]
+
 { #category : 'initialization' }
 MyChessGame >> initialize [
 
@@ -64,7 +69,9 @@ MyChessGame >> initialize [
 
 	moves := OrderedCollection new.
 	whitePlayer := MyPlayer new white game: self.
-	blackPlayer := MyPlayer new black game: self
+	whitePlayer setPromotionStrategy: MyManualPromotionStrategy new.
+	blackPlayer := MyPlayer new black game: self.
+   blackPlayer setPromotionStrategy: MyAutomaticPromotionStrategy new.
 ]
 
 { #category : 'initialization' }

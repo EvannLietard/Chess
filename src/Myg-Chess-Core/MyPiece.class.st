@@ -130,6 +130,11 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 ]
 
 { #category : 'accessing' }
+MyPiece >> game [
+^ square board game.
+]
+
+{ #category : 'accessing' }
 MyPiece >> id [
 
 	^ 'Q'
@@ -178,11 +183,11 @@ MyPiece >> legalTargetSquares [
 
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
-
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
-	(self canPromoteGeneric ) ifTrue: [ self promotionWindow ].
-	square emptyContents. 
-	square := aSquare. 
+	self canPromoteGeneric ifTrue: [
+		self game currentPlayer promotionStrategy promotePawn: self ].
+	square emptyContents.
+	square := aSquare.
 	aSquare contents: self
 ]
 

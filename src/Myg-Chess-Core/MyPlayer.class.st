@@ -3,7 +3,8 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'color',
-		'game'
+		'game',
+		'promotionStrategy'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -65,7 +66,6 @@ MyPlayer >> play [
 		          ifTrue: [ OrderedCollection with: self king ]
 		          ifFalse: [ self pieces copy asOrderedCollection ].
 
-
 	[ pieces notEmpty ] whileTrue: [
 		| piece legalMoves |
 		piece := pieces atRandom.
@@ -76,6 +76,18 @@ MyPlayer >> play [
 			^ self ] ].
 
 	self halt: 'NO MOVES AVAILABLE!'
+]
+
+{ #category : 'accessing' }
+MyPlayer >> promotionStrategy [
+
+	^ promotionStrategy 
+]
+
+{ #category : 'accessing' }
+MyPlayer >> setPromotionStrategy: aStrategy [
+
+	promotionStrategy := aStrategy 
 ]
 
 { #category : 'constants' }
