@@ -37,7 +37,7 @@ MyPawnTest >> testBlackPawnShouldPromote [
     | blackPawn promotedBlack |
 
     blackPawn := MyPawn black .
-    board at: 'e2' put: blackPawn.  
+    board at: 'e1' put: blackPawn.  
     promotedBlack := blackPawn canPromote.
     self assert: promotedBlack.
 
@@ -89,7 +89,7 @@ MyPawnTest >> testWhitePawnShouldPromote [
 
 	| whitePawn  promotedWhite |
 	whitePawn := MyPawn white.
-	board at: 'e7' put: whitePawn.
+	board at: 'e8' put: whitePawn.
 	promotedWhite := whitePawn canPromote.
 	self assert: promotedWhite 
 ]
