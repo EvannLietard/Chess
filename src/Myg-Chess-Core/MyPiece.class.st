@@ -184,11 +184,14 @@ MyPiece >> legalTargetSquares [
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
-	self canPromoteGeneric ifTrue: [
-		self game currentPlayer promotionStrategy promotePawn: self ].
+	
 	square emptyContents.
 	square := aSquare.
-	aSquare contents: self
+	aSquare contents: self.
+	
+	self canPromoteGeneric ifTrue: [
+		self game currentPlayer promotionStrategy promotePawn: self ].
+
 ]
 
 { #category : 'as yet unclassified' }

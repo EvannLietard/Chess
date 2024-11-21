@@ -49,6 +49,17 @@ MyChessGame class >> new [
 	self error: 'Please use one of the other constructors'
 ]
 
+{ #category : 'as yet unclassified' }
+MyChessGame >> changePlayer [
+currentPlayer = whitePlayer
+		ifTrue: [ currentPlayer := blackPlayer ]
+		ifFalse: [ 
+			moveCount := moveCount + 1.
+			currentPlayer := whitePlayer ].
+
+
+]
+
 { #category : 'playing' }
 MyChessGame >> checkForMate [
 
@@ -134,6 +145,7 @@ MyChessGame >> initializeFromFENGame: aFENGame [
 MyChessGame >> move: piece to: square [
 
 	piece moveTo: square.
+	self changePlayer .
 	self recordMovementOf: piece to: square
 ]
 
@@ -147,11 +159,6 @@ MyChessGame >> pieces [
 MyChessGame >> play [
 
 	currentPlayer play.
-	currentPlayer = whitePlayer
-		ifTrue: [ currentPlayer := blackPlayer ]
-		ifFalse: [ 
-			moveCount := moveCount + 1.
-			currentPlayer := whitePlayer ].
 	self checkForMate
 ]
 

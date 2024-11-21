@@ -11,8 +11,8 @@ Class {
 { #category : 'promote' }
 MyPawn >> canPromote [
 
-	^ (self isWhite and: [ self square up name endsWith: '8' ]) xor: [
-		  self isBlack and: [ self square down name endsWith: '1' ] ]
+	^ (self isWhite and: [ self square name endsWith: '8' ]) xor: [
+		  self isBlack and: [ self square name endsWith: '1' ] ]
 ]
 
 { #category : 'accessing' }
