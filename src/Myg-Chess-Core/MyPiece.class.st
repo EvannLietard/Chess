@@ -39,7 +39,7 @@ MyPiece >> board [
 
 { #category : 'testing' }
 MyPiece >> canPromote [ 
-self subclassResponsibility.
+^false.
 ]
 
 { #category : 'testing' }
