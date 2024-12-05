@@ -49,6 +49,11 @@ MyChessGame class >> new [
 	self error: 'Please use one of the other constructors'
 ]
 
+{ #category : 'accessing' }
+MyChessGame >> blackPlayer [
+^blackPlayer 
+]
+
 { #category : 'as yet unclassified' }
 MyChessGame >> changePlayer [
 currentPlayer = whitePlayer
@@ -112,8 +117,7 @@ MyChessGame >> initializeFromFENGame: aFENGame [
 		
 	moveCount := aFENGame moveCount.
 
-	board := MyChessBoard fromFENBoard: aFENGame board.
-	board game: self.
+	board := MyChessBoard fromFENBoard: aFENGame board game: self.
 	button := ToButton new.
 	button labelText: 'Play!'.
 	button whenClickedDo: [ self play ].
@@ -187,4 +191,9 @@ MyChessGame >> recordMovementOf: aPiece to: aSquare [
 	].
 	
 	movesLabel text: movesText
+]
+
+{ #category : 'accessing' }
+MyChessGame >> whitePlayer [
+^whitePlayer 
 ]

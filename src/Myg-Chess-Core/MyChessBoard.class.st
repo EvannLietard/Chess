@@ -23,9 +23,21 @@ MyChessBoard class >> empty [
 { #category : 'instance creation' }
 MyChessBoard class >> fromFENBoard: aFENBoard [
 
-	^ super new
-		  initializeFromFENBoard: aFENBoard;
-		  yourself
+	| theBoard |
+	theBoard := super new.
+	
+	theBoard initializeFromFENBoard: aFENBoard.
+	^ theBoard
+]
+
+{ #category : 'instance creation' }
+MyChessBoard class >> fromFENBoard: aFENBoard game:aGame [
+
+	| theBoard |
+	theBoard := super new.
+	theBoard game: aGame.
+	theBoard initializeFromFENBoard: aFENBoard.
+	^ theBoard
 ]
 
 { #category : 'instance creation' }
@@ -120,15 +132,19 @@ MyChessBoard >> initializeFromFENBoard: aFENBoard [
 
 	aFENBoard keysAndValuesDo: [ :k :v |
 		v ~= 'empty' ifTrue: [
-			| substrings color piece |
+			| substrings color pieceName piece |
 			substrings := v substrings.
 			color := substrings first.
-			piece := substrings second.
-			self
-				at: k
-				put:
-					((self class environment at: ('My' , piece capitalized) asSymbol)
-						 perform: color asLowercase asSymbol) ] ]
+			pieceName := substrings second.
+			piece := (self class environment at:
+				          ('My' , pieceName capitalized) asSymbol) perform:
+				         color asLowercase asSymbol.
+			piece color = Color white
+        	ifTrue: [piece player: self game whitePlayer].
+    		piece color = Color black
+         ifTrue: [piece player: self game blackPlayer].
+				
+			self at: k put: piece ] ]
 ]
 
 { #category : 'initialization' }

@@ -3,7 +3,8 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'color',
-		'square'
+		'square',
+		'player'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -190,8 +191,18 @@ MyPiece >> moveTo: aSquare [
 	aSquare contents: self.
 	
 	self canPromoteGeneric ifTrue: [
-		self game currentPlayer promotionStrategy promotePawn: self ].
+		self player promotionStrategy promotePawn: self ].
 
+]
+
+{ #category : 'accessing' }
+MyPiece >> player [ 
+^player
+]
+
+{ #category : 'accessing' }
+MyPiece >> player: aplayer [
+player := aplayer.
 ]
 
 { #category : 'as yet unclassified' }
