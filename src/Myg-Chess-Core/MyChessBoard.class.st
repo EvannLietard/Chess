@@ -21,16 +21,6 @@ MyChessBoard class >> empty [
 ]
 
 { #category : 'instance creation' }
-MyChessBoard class >> fromFENBoard: aFENBoard [
-
-	| theBoard |
-	theBoard := super new.
-	
-	theBoard initializeFromFENBoard: aFENBoard.
-	^ theBoard
-]
-
-{ #category : 'instance creation' }
 MyChessBoard class >> fromFENBoard: aFENBoard game:aGame [
 
 	| theBoard |

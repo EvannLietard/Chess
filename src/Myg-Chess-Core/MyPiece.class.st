@@ -205,16 +205,6 @@ MyPiece >> player: aplayer [
 player := aplayer.
 ]
 
-{ #category : 'as yet unclassified' }
-MyPiece >> promote [
- ^ 0.
-]
-
-{ #category : 'as yet unclassified' }
-MyPiece >> promotionWindow [ 
-^self  
-]
-
 { #category : 'rendering' }
 MyPiece >> rightFile [
 
