@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'color',
 		'square',
+		'myChessColor',
 		'player'
+
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -14,7 +16,7 @@ Class {
 MyPiece class >> black [
 
 	^ self new
-		  color: Color black;
+		  myChessColor: MyChessBlackColor new;
 		  yourself
 ]
 
@@ -22,7 +24,7 @@ MyPiece class >> black [
 MyPiece class >> white [
 
 	^ self new
-		  color: Color white;
+		  myChessColor: MyChessWhiteColor new;
 		  yourself
 ]
 
@@ -81,13 +83,7 @@ MyPiece >> collectSquares: collectBlock while: untilBlock [
 { #category : 'accessing' }
 MyPiece >> color [
 
-	^ color
-]
-
-{ #category : 'accessing' }
-MyPiece >> color: aColor [
-
-	color := aColor
+	^ myChessColor color
 ]
 
 { #category : 'rendering' }
@@ -203,6 +199,20 @@ MyPiece >> player [
 { #category : 'accessing' }
 MyPiece >> player: aplayer [
 player := aplayer.
+]
+
+{ #category : 'accessing' }
+MyPiece >> myChessColor [
+
+	^ myChessColor
+	
+]
+
+{ #category : 'accessing' }
+MyPiece >> myChessColor: aChessColor [ 
+
+	myChessColor := aChessColor 
+	
 ]
 
 { #category : 'rendering' }

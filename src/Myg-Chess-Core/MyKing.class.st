@@ -66,13 +66,13 @@ MyKing >> isKing [
 MyKing >> opponentPieces [
 
 	^ self board pieces select: [ :e |
-		  e notNil and: [ e color = color negated ] ]
+		  e notNil and: [ e color = self color negated ] ]
 ]
 
 { #category : 'rendering' }
 MyKing >> renderPieceOn: aSquare [
 
-	^ aSquare renderKing: self
+	^ self myChessColor renderKing: aSquare
 ]
 
 { #category : 'rendering' }

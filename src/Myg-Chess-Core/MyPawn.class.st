@@ -24,7 +24,7 @@ MyPawn >> id [
 { #category : 'rendering' }
 MyPawn >> renderPieceOn: aSquare [ 
 	
-	^ aSquare renderPawn: self
+	^ self myChessColor renderPawn: aSquare
 ]
 
 { #category : 'promote' }
