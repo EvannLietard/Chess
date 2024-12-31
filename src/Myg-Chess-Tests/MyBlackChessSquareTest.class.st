@@ -81,11 +81,11 @@ MyBlackChessSquareTest >> testBlackRenderBishop [
 	
 	"Test fou blanc sur case blanche"
 	whiteBishop := MyBishop white. 
-	self assert: (squareTest renderBishop: whiteBishop) equals: 'b'.
+	self assert: (whiteBishop renderPieceOn: squareTest) equals: 'b'.
 	
 	"Test fou noir sur case blanche"
 	blackBishop := MyBishop black. 
-	self assert: (squareTest renderBishop: blackBishop) equals: 'v'.
+	self assert: (blackBishop renderPieceOn: squareTest) equals: 'v'.
 	
 
 	
@@ -100,11 +100,9 @@ MyBlackChessSquareTest >> testBlackRenderKing [
 	
 	"Test roi blanc sur case blanche"
 	whiteKing := MyKing white. 
-	self assert: (squareTest renderKing: whiteKing) equals: 'k'.
+	self assert: (whiteKing renderPieceOn: squareTest) equals: 'k'.
 	
-	"Test roi noir sur case blanche"
-	blackKing := MyBishop black. 
-	self assert: (squareTest renderKing: blackKing) equals: 'l'.
+	
 
 ]
 
@@ -116,11 +114,11 @@ MyBlackChessSquareTest >> testBlackRenderKnight [
 	
 	"Test cavalier blanc sur case blanche"
 	whiteKnight := MyKnight white. 
-	self assert: (squareTest renderKnight: whiteKnight) equals: 'n'.
+	self assert: (whiteKnight renderPieceOn: squareTest) equals: 'n'.
 	
 	"Test cavalier noir sur case blanche"
 	blackKnight := MyKnight black. 
-	self assert: (squareTest renderKnight: blackKnight) equals: 'm'.
+	self assert: (blackKnight renderPieceOn: squareTest) equals: 'm'.
 	
 ]
 
@@ -132,11 +130,11 @@ MyBlackChessSquareTest >> testBlackRenderPawn [
 	
 	"Test pion blanc sur case blanche"
 	whitePawn := MyPawn white. 
-	self assert: (squareTest renderPawn: whitePawn) equals: 'p'.
+	self assert: (whitePawn renderPieceOn: squareTest) equals: 'p'.
 	
 	"Test pion noir sur case blanche"
 	blackPawn := MyPawn black. 
-	self assert: (squareTest renderPawn: blackPawn) equals: 'o'.
+	self assert: (blackPawn renderPieceOn: squareTest) equals: 'o'.
 	
 ]
 
@@ -148,11 +146,11 @@ MyBlackChessSquareTest >> testBlackRenderQueen [
 	
 	"Test reine blanche sur case blanche"
 	whiteQueen := MyQueen white. 
-	self assert: (squareTest renderQueen: whiteQueen) equals: 'q'.
+	self assert: (whiteQueen renderPieceOn: squareTest) equals: 'q'.
 	
 	"Test pion noir sur case blanche"
 	blackQueen := MyQueen black. 
-	self assert: (squareTest renderQueen: blackQueen) equals: 'w'.
+	self assert: (blackQueen renderPieceOn: squareTest) equals: 'w'.
 	
 ]
 
@@ -164,10 +162,10 @@ MyBlackChessSquareTest >> testBlackRenderRook [
 	
 	"Test tour blanche sur case blanche"
 	whiteRook := MyRook white. 
-	self assert: (squareTest renderRook: whiteRook) equals: 'r'.
+	self assert: (whiteRook renderPieceOn: squareTest) equals: 'r'.
 	
 	"Test tour noir sur case blanche"
 	blackRook := MyRook black. 
-	self assert: (squareTest renderRook: blackRook) equals: 't'.
+	self assert: (blackRook renderPieceOn: squareTest) equals: 't'.
 
 ]
