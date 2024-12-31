@@ -30,7 +30,7 @@ MyPawn >> renderPieceOn: aSquare [
 { #category : 'promote' }
 MyPawn >> replacePiece: aNewPiece [
 
-	aNewPiece color: self color.
+	aNewPiece myChessColor: myChessColor.
 	self board at: self square name put: aNewPiece
 ]
 
