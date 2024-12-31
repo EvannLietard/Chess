@@ -11,6 +11,12 @@ MyChessBlackColor >> color [
  ^ Color black  
 ]
 
+{ #category : 'arithmetic' }
+MyChessBlackColor >> negated [
+
+	^ Color white
+]
+
 { #category : 'rendering' }
 MyChessBlackColor >> renderBishop: aSquare [ 
 

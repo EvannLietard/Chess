@@ -14,7 +14,6 @@ Class {
 MyPiece class >> black [
 
 	^ self new
-		  color: Color black;
 		  myChessColor: MyChessBlackColor new;
 		  yourself
 ]
@@ -23,7 +22,6 @@ MyPiece class >> black [
 MyPiece class >> white [
 
 	^ self new
-		  color: Color white;
 		  myChessColor: MyChessWhiteColor new;
 		  yourself
 ]
