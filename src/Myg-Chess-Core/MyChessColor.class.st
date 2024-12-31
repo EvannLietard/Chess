@@ -5,6 +5,12 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'accessing' }
+MyChessColor >> color [ 
+
+	self subclassResponsibility 
+]
+
 { #category : 'rendering' }
 MyChessColor >> renderBishop: aSquare [ 
 	
