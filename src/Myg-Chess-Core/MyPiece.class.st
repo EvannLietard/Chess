@@ -6,7 +6,6 @@ Class {
 		'square',
 		'myChessColor',
 		'player'
-
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -139,7 +138,7 @@ MyPiece >> id [
 
 { #category : 'testing' }
 MyPiece >> isBlack [
-	^ color = Color black.
+	^ myChessColor color = Color black.
 ]
 
 { #category : 'testing' }
@@ -157,7 +156,7 @@ MyPiece >> isPiece [
 { #category : 'testing' }
 MyPiece >> isWhite [
 	
-	^ color = Color white.
+	^ myChessColor color = Color white.
 ]
 
 { #category : 'rendering' }
@@ -192,16 +191,6 @@ MyPiece >> moveTo: aSquare [
 ]
 
 { #category : 'accessing' }
-MyPiece >> player [ 
-^player
-]
-
-{ #category : 'accessing' }
-MyPiece >> player: aplayer [
-player := aplayer.
-]
-
-{ #category : 'accessing' }
 MyPiece >> myChessColor [
 
 	^ myChessColor
@@ -213,6 +202,16 @@ MyPiece >> myChessColor: aChessColor [
 
 	myChessColor := aChessColor 
 	
+]
+
+{ #category : 'accessing' }
+MyPiece >> player [ 
+^player
+]
+
+{ #category : 'accessing' }
+MyPiece >> player: aplayer [
+player := aplayer.
 ]
 
 { #category : 'rendering' }
