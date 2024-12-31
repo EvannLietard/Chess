@@ -1,9 +1,19 @@
 Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',
+	#instVars : [
+		'window'
+	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
 }
+
+{ #category : 'promote' }
+MyPawn >> canPromote [
+
+	^ (self isWhite and: [ self square name endsWith: '8' ]) xor: [
+		  self isBlack and: [ self square name endsWith: '1' ] ]
+]
 
 { #category : 'accessing' }
 MyPawn >> id [
@@ -15,6 +25,13 @@ MyPawn >> id [
 MyPawn >> renderPieceOn: aSquare [ 
 	
 	^ aSquare renderPawn: self
+]
+
+{ #category : 'promote' }
+MyPawn >> replacePiece: aNewPiece [
+
+	aNewPiece color: self color.
+	self board at: self square name put: aNewPiece
 ]
 
 { #category : 'rendering' }
