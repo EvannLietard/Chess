@@ -24,73 +24,73 @@ MyWhiteChessSquare >> negatedColor [
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackBishop: aPiece [
+MyWhiteChessSquare >> renderBlackBishop [
 
 	^ 'V'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackKing: aPiece [
+MyWhiteChessSquare >> renderBlackKing [
 
 	^ 'L'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackKnight: aPiece [
+MyWhiteChessSquare >> renderBlackKnight [
 
 	^ 'M'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackPawn: aPiece [
+MyWhiteChessSquare >> renderBlackPawn [
 
 	^ 'O'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackQueen: aPiece [
+MyWhiteChessSquare >> renderBlackQueen [
 
 	^ 'W'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderBlackRook: aPiece [
+MyWhiteChessSquare >> renderBlackRook [
 
 	^ 'T'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhiteBishop: aPiece [
+MyWhiteChessSquare >> renderWhiteBishop [
 
 	^ 'B'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhiteKing: aPiece [
+MyWhiteChessSquare >> renderWhiteKing [
 
 	^ 'K'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhiteKnight: aPiece [
+MyWhiteChessSquare >> renderWhiteKnight [
 
 	^ 'N'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhitePawn: aPiece [
+MyWhiteChessSquare >> renderWhitePawn [
 
 	^ 'P'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhiteQueen: aPiece [
+MyWhiteChessSquare >> renderWhiteQueen [
 
 	^ 'Q'
 ]
 
 { #category : 'rendering' }
-MyWhiteChessSquare >> renderWhiteRook: aPiece [
+MyWhiteChessSquare >> renderWhiteRook [
 
 	^ 'R'
 ]
