@@ -26,7 +26,7 @@ Voici l'UML de ma solution apportée pour ce KATA :
 
 ![UML solution](UML_solution.png)
 
-Je n'ai volontairement pas tout représenté, il manque certaine méthodes et bien sûr les classes environnante du projet Chess. Pour les exemple j'ai à chaque fois pris renderBishop mais la logique est la même pour toutes les autres méthodes de rendering. 
+Je n'ai volontairement pas tout représenté, il manque certaines méthodes et bien sûr les classes environnantes du projet Chess. Pour les exemples, j'ai à chaque fois pris renderBishop mais la logique est la même pour toutes les autres méthodes de rendering. 
 
 #### introspection 
 
@@ -36,4 +36,4 @@ Toutefois comme ce n'était pas suffisant j'ai ajouté la stratégie sur la coul
 A l'avenir j'essaierais de modifier mon code par plus petits blocks en vérifiant que les tests ne sont pas cassés ou en créant des méthodes intermédiaires par exemple qui permettent de maintenir un code fonctionnel pendant les changements. 
 
 #### Pour aller plus loin 
-J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'utilise mais celle ci en soit n'est plus utile car elle redirige vers la couleur de myChessColor. Pour aller plus loin il faudrait retirer cette variable et veiller à changer toutes les méthodes utilisant color en remplaçant par "myChessColor color" 
+J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'utilise pour éviter de lui ajouter du travail en plus alors qu'il avait fini, mais celle ci en soit n'est plus utile car elle redirige vers la couleur de myChessColor. Pour aller plus loin il faudrait retirer cette variable et veiller à changer toutes les méthodes utilisant color en remplaçant par "myChessColor color" 
