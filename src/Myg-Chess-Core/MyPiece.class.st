@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'color',
 		'square',
-		'myChessColor'
+		'myChessColor',
+		'player'
+
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -36,6 +38,16 @@ MyPiece >> attackingSquares [
 MyPiece >> board [
 
 	^ square board
+]
+
+{ #category : 'testing' }
+MyPiece >> canPromote [ 
+^false.
+]
+
+{ #category : 'testing' }
+MyPiece >> canPromoteGeneric [
+^self canPromote 
 ]
 
 { #category : 'rendering' }
@@ -115,9 +127,19 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 ]
 
 { #category : 'accessing' }
+MyPiece >> game [
+^ square board game.
+]
+
+{ #category : 'accessing' }
 MyPiece >> id [
 
 	^ 'Q'
+]
+
+{ #category : 'testing' }
+MyPiece >> isBlack [
+	^ color = Color black.
 ]
 
 { #category : 'testing' }
@@ -135,7 +157,7 @@ MyPiece >> isPiece [
 { #category : 'testing' }
 MyPiece >> isWhite [
 	
-	^ color isBlack not
+	^ color = Color white.
 ]
 
 { #category : 'rendering' }
@@ -158,12 +180,25 @@ MyPiece >> legalTargetSquares [
 
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
-
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ self ].
-
+	
 	square emptyContents.
 	square := aSquare.
-	aSquare contents: self
+	aSquare contents: self.
+	
+	self canPromoteGeneric ifTrue: [
+		self player promotionStrategy promotePawn: self ].
+
+]
+
+{ #category : 'accessing' }
+MyPiece >> player [ 
+^player
+]
+
+{ #category : 'accessing' }
+MyPiece >> player: aplayer [
+player := aplayer.
 ]
 
 { #category : 'accessing' }

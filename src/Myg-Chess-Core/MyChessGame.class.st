@@ -49,11 +49,32 @@ MyChessGame class >> new [
 	self error: 'Please use one of the other constructors'
 ]
 
+{ #category : 'accessing' }
+MyChessGame >> blackPlayer [
+^blackPlayer 
+]
+
+{ #category : 'as yet unclassified' }
+MyChessGame >> changePlayer [
+currentPlayer = whitePlayer
+		ifTrue: [ currentPlayer := blackPlayer ]
+		ifFalse: [ 
+			moveCount := moveCount + 1.
+			currentPlayer := whitePlayer ].
+
+
+]
+
 { #category : 'playing' }
 MyChessGame >> checkForMate [
 
 	whitePlayer king isCheckMated ifTrue: [ self halt: 'Black wins!' ].
 	blackPlayer king isCheckMated ifTrue: [ self halt: 'White wins!' ].
+]
+
+{ #category : 'accessing' }
+MyChessGame >> currentPlayer [
+^currentPlayer 
 ]
 
 { #category : 'initialization' }
@@ -64,7 +85,9 @@ MyChessGame >> initialize [
 
 	moves := OrderedCollection new.
 	whitePlayer := MyPlayer new white game: self.
-	blackPlayer := MyPlayer new black game: self
+	whitePlayer setPromotionStrategy: MyManualPromotionStrategy new.
+	blackPlayer := MyPlayer new black game: self.
+   blackPlayer setPromotionStrategy: MyAutomaticPromotionStrategy new.
 ]
 
 { #category : 'initialization' }
@@ -94,8 +117,7 @@ MyChessGame >> initializeFromFENGame: aFENGame [
 		
 	moveCount := aFENGame moveCount.
 
-	board := MyChessBoard fromFENBoard: aFENGame board.
-	board game: self.
+	board := MyChessBoard fromFENBoard: aFENGame board game: self.
 	button := ToButton new.
 	button labelText: 'Play!'.
 	button whenClickedDo: [ self play ].
@@ -127,6 +149,7 @@ MyChessGame >> initializeFromFENGame: aFENGame [
 MyChessGame >> move: piece to: square [
 
 	piece moveTo: square.
+	self changePlayer .
 	self recordMovementOf: piece to: square
 ]
 
@@ -140,11 +163,6 @@ MyChessGame >> pieces [
 MyChessGame >> play [
 
 	currentPlayer play.
-	currentPlayer = whitePlayer
-		ifTrue: [ currentPlayer := blackPlayer ]
-		ifFalse: [ 
-			moveCount := moveCount + 1.
-			currentPlayer := whitePlayer ].
 	self checkForMate
 ]
 
@@ -173,4 +191,9 @@ MyChessGame >> recordMovementOf: aPiece to: aSquare [
 	].
 	
 	movesLabel text: movesText
+]
+
+{ #category : 'accessing' }
+MyChessGame >> whitePlayer [
+^whitePlayer 
 ]
