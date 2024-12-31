@@ -73,13 +73,7 @@ MyPiece >> collectSquares: collectBlock while: untilBlock [
 { #category : 'accessing' }
 MyPiece >> color [
 
-	^ color
-]
-
-{ #category : 'accessing' }
-MyPiece >> color: aColor [
-
-	color := aColor
+	^ myChessColor color
 ]
 
 { #category : 'rendering' }
