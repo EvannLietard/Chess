@@ -41,6 +41,12 @@ MyPlayer >> game: anObject [
 ]
 
 { #category : 'testing' }
+MyPlayer >> hasPromotionStrategy [
+    ^ promotionStrategy notNil.
+
+]
+
+{ #category : 'testing' }
 MyPlayer >> isWhite [
 	
 	^ color = Color white
