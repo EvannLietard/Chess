@@ -3,7 +3,9 @@ Class {
 	#superclass : 'TestCase',
 	#instVars : [
 		'whitePlayer',
-		'blackPlayer'
+		'blackPlayer',
+		'game',
+		'promotionWindow'
 	],
 	#category : 'Myg-Chess-Tests',
 	#package : 'Myg-Chess-Tests'
@@ -20,13 +22,13 @@ MyChessGameTest >> setUp [ [
 ]
 
 { #category : 'tests' }
-MyChessGameTest >> testBlackPlayerHasAutomaticPromotionStrategy [ [
-    self assert: (blackPlayer promotionStrategy isKindOf: MyAutomaticPromotionStrategy).
-]
+MyChessGameTest >> testBlackPlayerHasAutomaticPromotionStrategy [ 
+    self assert: blackPlayer promotionStrategy class equals: MyAutomaticPromotionStrategy .
+
 ]
 
 { #category : 'tests' }
-MyChessGameTest >> testWhitePlayerHasManualPromotionStrategy [ [
-    self assert: (whitePlayer promotionStrategy isKindOf: MyManualPromotionStrategy).
-]
+MyChessGameTest >> testWhitePlayerHasManualPromotionStrategy [ 
+    self assert: whitePlayer promotionStrategy class equals: MyManualPromotionStrategy .
+
 ]
