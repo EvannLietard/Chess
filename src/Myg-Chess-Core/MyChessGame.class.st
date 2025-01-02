@@ -23,7 +23,8 @@ Class {
 		'movesLabel',
 		'moveCountLabel',
 		'moves',
-		'dsp'
+		'dsp',
+		'promotionWindow'
 	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
@@ -72,6 +73,83 @@ MyChessGame >> checkForMate [
 	blackPlayer king isCheckMated ifTrue: [ self halt: 'White wins!' ].
 ]
 
+{ #category : 'promotionStrategy' }
+MyChessGame >> checkIfStrategiesAreSetAndClose: arg1 [
+
+	(whitePlayer hasPromotionStrategy and: [
+		 blackPlayer hasPromotionStrategy ]) ifTrue: [ arg1 close ]
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> choosePromotionStrategies [
+    | mainPane |
+    promotionWindow := BlSpace new.
+    mainPane := self createMainPane.
+    promotionWindow root addChild: mainPane.
+    promotionWindow show.
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> createBlackPlayerPane [
+    | blackPane blackManualButton blackAutoButton |
+    blackPane := ToPane horizontal.
+    blackPane addChild: (ToLabel new text: 'Strategy for Black:').
+
+    blackManualButton := self createStrategyButtonForPlayer: 'Black' strategy: 'Manual'.
+    blackAutoButton := self createStrategyButtonForPlayer: 'Black' strategy: 'Automatic'.
+
+    blackPane addChild: blackManualButton.
+    blackPane addChild: blackAutoButton.
+
+    ^blackPane
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> createMainPane [
+    | mainPane whitePane blackPane |
+    mainPane := ToPane vertical.
+
+    whitePane := self createWhitePlayerPane.
+    blackPane := self createBlackPlayerPane.
+
+    mainPane addChild: whitePane.
+    mainPane addChild: blackPane.
+
+    ^mainPane
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> createStrategyButtonForPlayer: aPlayer strategy: aStrategy [
+    | strategyButton promotionStrategy |
+    promotionStrategy := self strategyForPlayer: aPlayer strategy: aStrategy.
+    
+    strategyButton := ToButton new.
+    strategyButton labelText: aStrategy.
+    strategyButton whenClickedDo: [
+        aPlayer = 'White'
+            ifTrue: [whitePlayer setPromotionStrategy: promotionStrategy].
+        aPlayer = 'Black'
+            ifTrue: [blackPlayer setPromotionStrategy: promotionStrategy].
+        self checkIfStrategiesAreSetAndClose: promotionWindow.
+    ].
+    ^strategyButton
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> createWhitePlayerPane [
+    | whitePane whiteManualButton whiteAutoButton |
+    whitePane := ToPane horizontal.
+    whitePane addChild: (ToLabel new text: 'Strategy for White:').
+
+    whiteManualButton := self createStrategyButtonForPlayer: 'White' strategy: 'Manual'.
+    whiteAutoButton := self createStrategyButtonForPlayer: 'White' strategy: 'Automatic'.
+
+    whitePane addChild: whiteManualButton.
+    whitePane addChild: whiteAutoButton.
+
+    ^whitePane
+]
+
 { #category : 'accessing' }
 MyChessGame >> currentPlayer [
 ^currentPlayer 
@@ -82,12 +160,10 @@ MyChessGame >> initialize [
 
 	super initialize.
 	self initializeFonts.
-
 	moves := OrderedCollection new.
 	whitePlayer := MyPlayer new white game: self.
-	whitePlayer setPromotionStrategy: MyManualPromotionStrategy new.
 	blackPlayer := MyPlayer new black game: self.
-   blackPlayer setPromotionStrategy: MyAutomaticPromotionStrategy new.
+	self choosePromotionStrategies
 ]
 
 { #category : 'initialization' }
@@ -191,6 +267,16 @@ MyChessGame >> recordMovementOf: aPiece to: aSquare [
 	].
 	
 	movesLabel text: movesText
+]
+
+{ #category : 'promotionStrategy' }
+MyChessGame >> strategyForPlayer: aPlayer strategy: aStrategy [
+    | strategyClass |
+    strategyClass := aStrategy = 'Manual' 
+        ifTrue: [MyManualPromotionStrategy]
+        ifFalse: [MyAutomaticPromotionStrategy].
+    
+    ^strategyClass new
 ]
 
 { #category : 'accessing' }
