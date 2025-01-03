@@ -74,10 +74,9 @@ MyChessGame >> checkForMate [
 ]
 
 { #category : 'promotionStrategy' }
-MyChessGame >> checkIfStrategiesAreSetAndClose: arg1 [
+MyChessGame >> checkIfStrategiesAreSet [
 
-	(whitePlayer hasPromotionStrategy and: [
-		 blackPlayer hasPromotionStrategy ]) ifTrue: [ arg1 close ]
+	^ (whitePlayer hasPromotionStrategy and: blackPlayer hasPromotionStrategy).
 ]
 
 { #category : 'promotionStrategy' }
@@ -130,7 +129,7 @@ MyChessGame >> createStrategyButtonForPlayer: aPlayer strategy: aStrategy [
             ifTrue: [whitePlayer setPromotionStrategy: promotionStrategy].
         aPlayer = 'Black'
             ifTrue: [blackPlayer setPromotionStrategy: promotionStrategy].
-        self checkIfStrategiesAreSetAndClose: promotionWindow.
+        (self checkIfStrategiesAreSet) ifTrue: [promotionWindow close].
     ].
     ^strategyButton
 ]
@@ -240,6 +239,11 @@ MyChessGame >> play [
 
 	currentPlayer play.
 	self checkForMate
+]
+
+{ #category : 'accessing' }
+MyChessGame >> promotionWindow [
+^promotionWindow 
 ]
 
 { #category : 'moves' }
