@@ -78,6 +78,50 @@ MyChessGameTest >> testCreateMainPane [
 ]
 
 { #category : 'tests' }
+MyChessGameTest >> testCreateStrategyButtonForBlackPlayerClickAutomatic [
+    | strategyButton|
+	 blackPlayer setPromotionStrategy: nil.
+    strategyButton := game createStrategyButtonForPlayer: 'Black' strategy: 'Automatic'.
+	 strategyButton dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	 self assert: strategyButton notNil.
+	 self assert: game blackPlayer promotionStrategy class equals: MyAutomaticPromotionStrategy .
+	
+
+]
+
+{ #category : 'tests' }
+MyChessGameTest >> testCreateStrategyButtonForBlackPlayerClickManual [
+    | strategyButton|
+	 blackPlayer setPromotionStrategy: nil.
+    strategyButton := game createStrategyButtonForPlayer: 'Black' strategy: 'Manual'.
+	 strategyButton dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	 self assert: strategyButton notNil.
+	 self assert: game blackPlayer promotionStrategy class equals: MyManualPromotionStrategy .
+	
+
+]
+
+{ #category : 'tests' }
+MyChessGameTest >> testCreateStrategyButtonForWhitePlayerClickAutomatic [
+    | strategyButton |
+    strategyButton := game createStrategyButtonForPlayer: 'White' strategy: 'Automatic'.
+	 strategyButton dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	 self assert: strategyButton notNil.
+	 self assert: game whitePlayer promotionStrategy class equals: MyAutomaticPromotionStrategy .
+
+]
+
+{ #category : 'tests' }
+MyChessGameTest >> testCreateStrategyButtonForWhitePlayerClickManual [
+    | strategyButton |
+    strategyButton := game createStrategyButtonForPlayer: 'White' strategy: 'Manual'.
+	 strategyButton dispatchEvent: BlMouseUpEvent primary asClickEvent.
+	 self assert: strategyButton notNil.
+	 self assert: game whitePlayer promotionStrategy class equals: MyManualPromotionStrategy .
+
+]
+
+{ #category : 'tests' }
 MyChessGameTest >> testCreateWhitePlayerPane [
     | whitePane whiteManualButton whiteAutoButton labelText |
     whitePane := game createWhitePlayerPane.
