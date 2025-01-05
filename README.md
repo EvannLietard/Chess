@@ -65,3 +65,40 @@ A l'avenir j'essaierais de modifier mon code par plus petits blocks en vérifian
 
 #### Pour aller plus loin 
 J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'utilise pour éviter de lui ajouter du travail en plus alors qu'il avait fini, mais celle ci en soit n'est plus utile car elle redirige vers la couleur de myChessColor. Pour aller plus loin il faudrait retirer cette variable et veiller à changer toutes les méthodes utilisant color en remplaçant par "myChessColor color" 
+
+### Lietard Evann
+#### Pawn promotion
+
+Mon kata peut être divisé en 4 versions différentes (celles-ci sont visibles dans les sorties) :
+
+- **Troisième version** :  
+  Ici, j'ai implémenté un type de promotion différent. Jusqu'alors, la promotion nécessitait obligatoirement l'intervention humaine, mais je voulais que cela puisse être réalisé automatiquement par l'ordinateur. Pour ce faire, j'ai choisi d'utiliser le design pattern *Strategy* afin de gérer le comportement de la méthode de promotion de pion. Cependant, à ce stade, le joueur blanc restait toujours en manuel et le joueur noir en automatique.
+
+- **Quatrième version (actuelle)** :  
+  Dans cette version, je voulais offrir aux joueurs le choix de la manière dont ils effectuent la promotion. J'ai donc refait une interface graphique permettant aux joueurs de décider comment effectuer leur promotion.
+
+  Mon kata peut être divisé en 4 versions différentes (celles-ci sont visibles dans les sorties) :
+
+- **Première version** :  
+  Cette version consistait en l'implémentation des méthodes permettant de remplacer le pion par une pièce prédéfinie. Le problème principal était que les boutons de l'interface graphique se superposaient, ce qui rendait impossible de proposer plusieurs options de promotion. Par conséquent, je n'ai pu intégrer qu'un seul bouton, obligeant à remplacer manuelement le 
+  pion par une pièce prédéfinie (comme une reine).  
+  *Problèmes rencontrés* : Interface graphique non adaptée aux besoins, empêchant le choix du type de pièce.  
+
+- **Deuxième version** :  
+  Dans cette version, il était désormais possible de choisir le type de pièce remplaçant le pion. En effet, c'est à ce stade que mon interface graphique a été rendue fonctionnelle, avec des boutons distincts permettant de sélectionner une reine, un cavalier, une tour ou un fou.  
+  *Exemple* : Lorsqu'un pion atteignait la dernière rangée, une fenêtre s'ouvrait, présentant des boutons cliquables pour chaque type de pièce.  
+
+- **Troisième version** :  
+  Ici, j'ai implémenté un type de promotion différent. Jusqu'alors, la promotion nécessitait obligatoirement l'intervention humaine, mais je voulais que cela puisse être réalisée automatiquement par l'ordinateur. Pour ce faire, j'ai choisi d'utiliser le design pattern *Strategy* afin de gérer le comportement de la méthode de promotion de pion.  
+  *Exemple* : Si un pion noir atteignait la dernière rangée, l'ordinateur sélectionnait automatiquement une pièce en fonction d'une logique prédéfinie. Pour le joueur blanc, cependant, il conservait la possibilité de choisir manuellement la pièce qui remplacerait son pion.  
+  *Limites* : Bien que cette version ait introduit un mécanisme de promotion automatique, elle n'offrait pas une flexibilité totale aux joueurs. Les joueurs n'avaient pas le choix de décider comment ils souhaitaient jouer leur partie (manuel ou automatique), ce qui pouvait limiter leur expérience de jeu.
+
+
+- **Quatrième version (actuelle)** :  
+  Dans cette version, je voulais offrir aux joueurs le choix de la manière dont ils effectuent la promotion. J'ai donc refait une interface graphique permettant aux joueurs de décider comment effectuer leur promotion.  
+  *Exemple* : Avant le début de la partie, chaque joueur peut configurer son mode de promotion (manuel, automatique,).  
+
+### ATTENTION :  
+Les interfaces graphiques apparaissent très souvent derrière l'interface principale du jeu. Si cela se produit, il suffit de faire un clic gauche sur l'icône de Pharo dans la barre des tâches, et les interfaces deviendront visibles.
+
+
