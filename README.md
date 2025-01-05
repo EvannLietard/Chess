@@ -69,14 +69,6 @@ J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'ut
 ### Lietard Evann
 #### Pawn promotion
 
-Mon kata peut être divisé en 4 versions différentes (celles-ci sont visibles dans les sorties) :
-
-- **Troisième version** :  
-  Ici, j'ai implémenté un type de promotion différent. Jusqu'alors, la promotion nécessitait obligatoirement l'intervention humaine, mais je voulais que cela puisse être réalisé automatiquement par l'ordinateur. Pour ce faire, j'ai choisi d'utiliser le design pattern *Strategy* afin de gérer le comportement de la méthode de promotion de pion. Cependant, à ce stade, le joueur blanc restait toujours en manuel et le joueur noir en automatique.
-
-- **Quatrième version (actuelle)** :  
-  Dans cette version, je voulais offrir aux joueurs le choix de la manière dont ils effectuent la promotion. J'ai donc refait une interface graphique permettant aux joueurs de décider comment effectuer leur promotion.
-
   Mon kata peut être divisé en 4 versions différentes (celles-ci sont visibles dans les sorties) :
 
 - **Première version** :  
