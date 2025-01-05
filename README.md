@@ -37,6 +37,13 @@ https://github.com/PawlowskiFlo/Miage23/blob/2024/Groups/G04/report_week03.md
 
 (week 03 / week 05 / week 06 / week 08) 
 
+### difficultés rencontrées 
+
+La difficulté principale de ce kata était de trouver une architecture de code convenable qui répondait à nos besoins (ici éliminer les blocks conditionnels). Il fallait penser au bon design et savoir comment l'utiliser. 
+J'étais longtemps bloquée sur l'idée de faire des pions colorés, (whiteKing, blackKing etc) et ne voyais pas trop comment faire autrement, grâce aux cours j'ai compris comment utiliser la strategy pour passer la couleur au pion sans répéter les classes en fonction des couleurs. 
+La difficulté était aussi dans la maintenabilité du code aussi car il y'avait pas mal de changements à faire, des nouvelles classes à implémenter, et donc des changements dans les tests aussi. Il fallait procéder vraiment par étape pour ne pas completement casser le code. 
+Je ne savais pas jouer aux échecs avant ce kata donc j'ai choisi le kata refactor piece rendering pour ne pas me surcharger dans le travail. J'ai préféré me concentrer sur la partie reflexion de l'implémentation du code plutôt que de passer du temps sur un autre kata qui m'aurait demandé de connaître un peu mieux ce jeu. 
+
 ### TAGs 
 
 (je ne savais pas comment tagger les parties de mon code j'ai appris ça sur la fin de mon kata donc je n'ai pas pu tagger directement sur git mes anciennes parties. Voici une découpe sur certains commits de mon kata)
@@ -55,7 +62,7 @@ https://github.com/EvannLietard/Chess/commit/bb496a38ef8f7cfb3e1a74718b35499a698
 
 ### Tests
 
-Mes tests se trouvent dans MyBlackChessSquareTest et MyWhiteChessSquareTest ce sont des test sur les méthodes de rendering. J'ai du revenir deux fois sur mes tests, une fois pour changer les set up lorsque j'ai changé mon implémentation. Puis sur la fin pour utiliser directement les méthodes renderPieceOn des pièces au lieu des méthodes de rendering directement. 
+Mes tests se trouvent dans MyBlackChessSquareTest et MyWhiteChessSquareTest ce sont des test sur les méthodes de rendering. J'ai du revenir deux fois sur mes tests, une fois pour changer les set up lorsque j'ai changé mon implémentation. Puis sur la fin pour utiliser directement les méthodes renderPieceOn des pièces au lieu des méthodes de rendering directement. Tous les mutants de mes tests ont été tués. 
 
 https://github.com/EvannLietard/Chess/blob/main/src/Myg-Chess-Tests/MyBlackChessSquareTest.class.st
 
