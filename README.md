@@ -69,6 +69,8 @@ La pièce, à sa création, connaît myChessColor (stratégie noire ou blanche f
 
 J'ai produit ce refactoring en créant des tests dès le départ que j'ai dû légérement modifer (surtout la partie set up de mes variables par exemple on construit un test en créant un MyBlackChessSquare et pas seulement un MyChessSquare classique ) 
 
+### Design decisions 
+
 Voici l'UML du projet de départ centré sur les classes dont on s'occupe particulièrement pour le refactoring des méthodes de render:
 
 ![UML départ](UML_starting_project.png)
