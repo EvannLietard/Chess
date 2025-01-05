@@ -52,7 +52,8 @@ https://github.com/EvannLietard/Chess/commit/ff07a5a2253ae36bea5e7d8619c718b6910
 TAG 3 : Suite à ces deux parties il me restait toujours un block conditionnel dans chaque méthode render, j'avais pensé à créer des classes de pions pour chaque couleur (par exemple un king blanc, un king noir, une queen blanche, une queen blanche etc) toutefois en étant tous passés au tableau pour présenter l'avancée de notre kata en cours, Guille nous a mis sur la voix de la Strategy. J'ai donc pensé à mettre en place ce design pattern sur la couleur du pion ce qui permettrait de ne pas créer une classe de pion par couleur et donc c'est beaucoup plus lisible et ouvert aux possibles extensions. 
 
 https://github.com/EvannLietard/Chess/commit/bb496a38ef8f7cfb3e1a74718b35499a69892180
-### test 
+
+### Tests
 
 Mes tests se trouvent dans MyBlackChessSquareTest et MyWhiteChessSquareTest ce sont des test sur les méthodes de rendering. J'ai du revenir deux fois sur mes tests, une fois pour changer les set up lorsque j'ai changé mùon implémentation. Puis sur la fin pour utiliser directement les méthodes renderPieceOn des pièces au lieu des méthodes de rendering directement. 
 
