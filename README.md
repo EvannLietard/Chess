@@ -55,7 +55,7 @@ https://github.com/EvannLietard/Chess/commit/bb496a38ef8f7cfb3e1a74718b35499a698
 
 ### Tests
 
-Mes tests se trouvent dans MyBlackChessSquareTest et MyWhiteChessSquareTest ce sont des test sur les méthodes de rendering. J'ai du revenir deux fois sur mes tests, une fois pour changer les set up lorsque j'ai changé mùon implémentation. Puis sur la fin pour utiliser directement les méthodes renderPieceOn des pièces au lieu des méthodes de rendering directement. 
+Mes tests se trouvent dans MyBlackChessSquareTest et MyWhiteChessSquareTest ce sont des test sur les méthodes de rendering. J'ai du revenir deux fois sur mes tests, une fois pour changer les set up lorsque j'ai changé mon implémentation. Puis sur la fin pour utiliser directement les méthodes renderPieceOn des pièces au lieu des méthodes de rendering directement. 
 
 https://github.com/EvannLietard/Chess/blob/main/src/Myg-Chess-Tests/MyBlackChessSquareTest.class.st
 
