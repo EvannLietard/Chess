@@ -37,6 +37,22 @@ https://github.com/PawlowskiFlo/Miage23/blob/2024/Groups/G04/report_week03.md
 
 (week 03 / week 05 / week 06 / week 08) 
 
+### TAGs 
+
+(je ne savais pas comment tagger les parties de mon code j'ai appris ça sur la fin de mon kata donc je n'ai pas pu tagger directement sur git mes anciennes parties. Voici une découpe sur certains commits de mon kata)
+
+TAG 1 : Voici la première version de mon kata : C'est la partie où j'ai créé des tests pour assurer que le refactoring que j'allais faire par la suite garderait le même comportement qu'auparavent. 
+
+https://github.com/EvannLietard/Chess/tree/9d93eaea09766c5e38dce43d51ae4e8ee92f29b6
+
+TAG 2 : La deuxième version de mon kata est l'implémentation de MyBlackChessSquare et MyWhiteChessSquare (afin d'appliquer le double dispatch, voir la méthode contents : type du pion inconnu + type du square inconnu à l'écriture de la méthode, le double dispatch s'appliquera donc à l'execution quand le message sera envoyé aux objets.) 
+
+https://github.com/EvannLietard/Chess/commit/ff07a5a2253ae36bea5e7d8619c718b6910fcf3e
+
+TAG 3 : Suite à ces deux parties il me restait toujours un block conditionnel dans chaque méthode render, j'avais pensé à créer des classes de pions pour chaque couleur (par exemple un king blanc, un king noir, une queen blanche, une queen blanche etc) toutefois en étant tous passés au tableau pour présenter l'avancée de notre kata en cours, Guille nous a mis sur la voix de la Strategy. J'ai donc pensé à mettre en place ce design pattern sur la couleur du pion ce qui permettrait de ne pas créer une classe de pion par couleur et donc c'est beaucoup plus lisible et ouvert aux possibles extensions. 
+
+https://github.com/EvannLietard/Chess/commit/bb496a38ef8f7cfb3e1a74718b35499a69892180
+
 #### solution apportée 
 
 Durant mes dernieres séances sur ce kata j'ai modifié mes derniers changements, j'ai fait un peu de refactoring en retirant quelques méthodes inutiles (par exemple renderBishop: et tous les autres render dans la classe MyChessSquare puisque on peut mettre en place le double dispacth directement grâce à myChessColor (qui est une stratégie) dans les méthodes renderPieceOn de chaque type de pièce.) 
