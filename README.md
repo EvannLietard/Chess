@@ -6,7 +6,7 @@ This code has been tested in Pharo 12. You can get it by installing the followin
 
 ```smalltalk
 Metacello new
-	repository: 'github://UnivLille-Meta/Chess:main';
+	repository: 'github://EvannLietard/Chess:main';
 	baseline: 'MygChess';
 	onConflictUseLoaded;
 	load.
