@@ -100,8 +100,11 @@ A l'avenir j'essaierais de modifier mon code par plus petits blocks en vérifian
 J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'utilise pour éviter de lui ajouter du travail en plus alors qu'il avait fini, mais celle ci en soit n'est plus utile car elle redirige vers la couleur de myChessColor. Pour aller plus loin il faudrait retirer cette variable et veiller à changer toutes les méthodes utilisant color en remplaçant par "myChessColor color" 
 
 ### Lietard Evann
-#### Pawn promotion
+### Pawn promotion
+  ### Description
+  Ce kata est basé sur la mécanique du jeu d'échecs, plus précisément sur la promotion d'un pion lorsqu'il atteint la dernière ligne du plateau de jeu. Dans ce projet, l'objectif était de modéliser et de gérer cette promotion de manière automatique ou manuelle, en fonction des choix du joueur.
 
+  ### Version
   Mon kata peut être divisé en 4 versions différentes (celles-ci sont visibles dans les sorties) :
 
 - **Première version** :  
@@ -126,10 +129,45 @@ J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'ut
 ### ATTENTION :  
 Les interfaces graphiques apparaissent très souvent derrière l'interface principale du jeu. Si cela se produit, il suffit de faire un clic gauche sur l'icône de Pharo dans la barre des tâches, et les interfaces deviendront visibles.
 
-### Méthode de travail :  
-Au début, je n'ai rencontré aucun problème pour appliquer la méthode TDD (Test-Driven Development). Cependant, cela s'est avéré beaucoup plus difficile lorsque j'ai dû gérer les interfaces graphiques, car je ne les maîtrisais pas du tout.  
+### Méthode de travail et difficulté principale rencontrée
 
-Face à cette difficulté, j'ai préféré effectuer de nombreux tests manuels pour valider le fonctionnement des interfaces. Parallèlement, je veillais à ce que mes changements n'affectent pas les tests déjà réalisés, afin de garantir la stabilité du reste du code.
+Au début, je n'ai rencontré aucun problème pour appliquer la méthode TDD (Test-Driven Development) aux fonctionnalités de base. Cependant, la gestion des interfaces graphiques s'est avérée beaucoup plus difficile, car je ne maîtrisais pas cet aspect du projet. L'implémentation des interfaces et des interactions utilisateur a donc été un véritable défi.
+
+Face à cette difficulté, j'ai préféré effectuer de nombreux tests manuels pour valider le fonctionnement des interfaces. En parallèle, je veillais à ce que mes changements n'affectent pas les tests déjà réalisés, afin de garantir la stabilité du reste du code.
+
+Pour résoudre ce problème de gestion d'interface, j'ai dû me renseigner sur les outils disponibles dans Pharo(Toplo et Bloc):
+- **`BlSpace` / `ToPane`** : Pour structurer l'interface et gérer les zones d'affichage.  
+- **`ToButton`** : Pour intégrer des boutons interactifs dans l'interface utilisateur.  
+
+Grâce à ces découvertes, j'ai pu mettre en place une solution qui répondait à mes besoins en matière d'interaction graphique, tout en maintenant la qualité du code et des tests automatisés.
+
+### Tests
+
+Mes tests automatisés sont répartis dans cinq classes principales :  
+
+1. **`MyPawnTest`**  
+   - Vérifie si un pion doit être promu.  
+   - Teste le remplacement du pion par une nouvelle pièce après la promotion.  
+
+2. **`MyManualPromotionStrategyTest`**  
+   - Teste l'interface graphique permettant de choisir le type de pièce à promouvoir.  
+   - Teste le comportement de la stratégie de promotion manuelle.  
+
+3. **`MyAutomaticPromotionStrategyTest`**  
+   - Vérifie le comportement de la stratégie de promotion automatique.  
+   - S'assure que l'ordinateur sélectionne correctement la pièce selon la logique prédéfinie.  
+
+4. **`MyPlayerTest`**  
+   - S'assure que le joueur est bien associé à une stratégie (manuelle ou automatique).  
+
+5. **`MyChessGameTest`**  
+   - Vérifie l'interface graphique permettant de choisir la stratégie de promotion (manuelle ou automatique).
+       
+ Bien qu'ils soient peu nombreux, certains tests de mutation ont été effectués au debut du projet pour s'assurer que le code est robuste face à des modifications inattendues.
+
+
+
+
 
 
 
