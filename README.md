@@ -93,4 +93,10 @@ J'ai laissé la variable color dans MyPiece car je sais que le Kata d'evann l'ut
 ### ATTENTION :  
 Les interfaces graphiques apparaissent très souvent derrière l'interface principale du jeu. Si cela se produit, il suffit de faire un clic gauche sur l'icône de Pharo dans la barre des tâches, et les interfaces deviendront visibles.
 
+### Méthode de travail :  
+Au début, je n'ai rencontré aucun problème pour appliquer la méthode TDD (Test-Driven Development). Cependant, cela s'est avéré beaucoup plus difficile lorsque j'ai dû gérer les interfaces graphiques, car je ne les maîtrisais pas du tout.  
+
+Face à cette difficulté, j'ai préféré effectuer de nombreux tests manuels pour valider le fonctionnement des interfaces. Parallèlement, je veillais à ce que mes changements n'affectent pas les tests déjà réalisés, afin de garantir la stabilité du reste du code.
+
+
 
